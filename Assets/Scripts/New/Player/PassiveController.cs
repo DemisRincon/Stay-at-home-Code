@@ -71,24 +71,28 @@ public class PassiveController : MonoBehaviour
         }
         else if (focus.turnOnTV)
         {
+            VideoClip videoClip = video.GetComponent<AudioRandom>().GetVideoSource();
             if (video.isPlaying)
             {
                 video.Stop();
             }
             else
             {
+                video.clip = videoClip;
                 video.Play();
                 GeneralMod();
             }
         }
         else if (focus.turnOnStereo)
         {
+            AudioClip audioClip = spotify.GetComponent<AudioRandom>().GetAudioSource();
             if (spotify.isPlaying)
             {
                 spotify.Stop();
             }
             else
             {
+                spotify.clip = audioClip;
                 spotify.Play();
                 GeneralMod();
             }
@@ -270,9 +274,10 @@ public class PassiveController : MonoBehaviour
             {
                 GameOver();
             }
+            stateController.energy.ModifyValue(100);
             stateController.hygiene.ModifyValue(0);
             gameController.RunFade();
-            timeController.AddHours(currentFocus.hoursSpent);
+            timeController.AddHours(8);
             stateController.takignANap.ModifyValue(false);
         }
     }

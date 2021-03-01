@@ -19,6 +19,9 @@ public class Movement : MonoBehaviour
     public MultipleInteracionConroller focusVariable;
     private int rayLayerMask;
     private float xRotation = 0f;
+    [SerializeField] private MoveableObject moveableObject;
+    private Animator animator;
+    private const string animBoolName = "isOpen_Obj_";
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -41,26 +44,57 @@ public class Movement : MonoBehaviour
         {
             focus = hit.collider.GetComponent<ObjectInteractable>();
             focusVariable = hit.collider.GetComponent<MultipleInteracionConroller>();
+            moveableObject = hit.collider.GetComponent<MoveableObject>();
+            if (moveableObject!=null)
+            {
+                animator = hit.collider.GetComponent<Animator>();
+            }
             if (focus != null)
             {
                 if (focus.allowInteract)
                 {
                     messagePanel.SetActive(true);
-                    messageText.text = focus.GetActionName() + " (E)";
+                    bool isOpen = false;
+                    string animBoolNameNum = "true";
+                    if (moveableObject != null)
+                    {
+                        animBoolNameNum = animBoolName + moveableObject.objectNumber.ToString();
+                        isOpen = animator.GetBool(animBoolNameNum);
+                        if (isOpen)
+                        {
+                            messageText.text = "Press E to Close";
+                        }
+                        else
+                        {
+                            messageText.text = "Press E to Open";
+                        }
+                    }
+                    else
+                    {
+                        messageText.text = focus.GetActionName() + " (E)";
+                    }
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         focus.PerformActions();
+                        if (moveableObject != null)
+                        {
+                            animator.enabled = true;
+                            animator.SetBool(animBoolNameNum, !isOpen);
+                        }
                     }
                 }
             }
-            else if (focusVariable!=null)
+            else if (focusVariable != null)
             {
                 if (focusVariable.allowInteract)
                 {
                     messagePanel.SetActive(true);
-                    messageText.text = focusVariable.GetActionName() + " (E)";
+                  
+                        messageText.text = focusVariable.GetActionName() + " (E)";
+                    
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                    
                         focusVariable.PerformActions();
                     }
                 }
@@ -77,7 +111,7 @@ public class Movement : MonoBehaviour
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * moveX + transform.forward * moveY+transform.up*0;
+        Vector3 move = transform.right * moveX + transform.forward * moveY + transform.up * 0;
         characterController.Move(move * movementSpeed * Time.deltaTime);
 
     }
