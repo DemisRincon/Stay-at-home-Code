@@ -1,0 +1,356 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.Audio;
+
+public class PassiveController : MonoBehaviour
+{
+    private StateController stateController;
+    [SerializeField] private GameController gameController;
+    private int hungerPenalization = 0;
+    private int hungerTime = 0;
+    private int thirstTime = 0;
+    ObjectInteractable currentFocus;
+    private TimeController timeController;
+    private int noHealtyFoodDay = 0;
+    private int foodDay = 0;
+    private VideoPlayer video;
+    private AudioSource spotify;
+    // Start is called before the first frame update
+    void Start()
+    {
+        stateController = gameObject.GetComponent<StateController>();
+        gameController = GameObject.Find("EventSystem").GetComponent<GameController>();
+        timeController = GameObject.Find("EventSystem").GetComponent<TimeController>();
+        video = GameObject.Find("TVCanvas").GetComponent<VideoPlayer>();
+        spotify = GameObject.Find("Spotify").GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        StartCoroutine(CheckForInstnatPassive());
+    }
+
+    public void PerfromModification(ObjectInteractable focus)
+    {
+
+        currentFocus = focus;
+
+        
+        
+        if (focus.doBath)
+        {
+            Bath();
+        }
+        else if (focus.doEat)
+        {
+            Eat();
+        }
+        else if (focus.doClean)
+        {
+            Clean();
+        }
+        else if (focus.doSleep)
+        {
+            Sleep();
+        }
+        else if (focus.doWork)
+        {
+            Work();
+        }
+        else if (focus.doACall)
+        {
+            Call();
+        }
+        else if (focus.doExercise)
+        {
+            Exercise();
+        }
+        else if (focus.turnOnTV)
+        {
+            if (video.isPlaying)
+            {
+                video.Stop();
+            }
+            else
+            {
+                video.Play();
+                GeneralMod();
+            }
+        }
+        else if (focus.turnOnStereo)
+        {
+            if (spotify.isPlaying)
+            {
+                spotify.Stop();
+            }
+            else
+            {
+                spotify.Play();
+                GeneralMod();
+            }
+        }
+        else
+        {
+            GeneralMod();
+        }
+
+
+        currentFocus = null;
+
+
+    }
+
+    private void Exercise()
+    {
+        stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
+        stateController.stress.ModifyValue(currentFocus.stressModification);
+        stateController.weigth.ModifyValue(currentFocus.weightModification);
+        timeController.AddHours(currentFocus.hoursSpent);
+        gameController.RunFade();
+    }
+
+    private void Call()
+    {
+        if (timeController.hourCounter >= 16 && timeController.hourCounter <= 23)
+        {
+            stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
+            stateController.social.ModifyValue(currentFocus.socialModification);
+            timeController.AddHours(currentFocus.hoursSpent);
+            gameController.RunFade();
+        }
+    }
+    private void GeneralMod()
+    {
+        stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
+        stateController.social.ModifyValue(currentFocus.socialModification);
+        AddWeigthForExtraSatitey();
+        stateController.satiety.ModifyValue(currentFocus.satietyModification);
+        stateController.thirst.ModifyValue(currentFocus.thirstModification);
+        stateController.hygiene.ModifyValue(currentFocus.hygieneModification);
+        stateController.fun.ModifyValue(currentFocus.funModification);
+        stateController.stress.ModifyValue(currentFocus.stressModification);
+        stateController.happines.ModifyValue(currentFocus.happinessModification);
+        stateController.weigth.ModifyValue(currentFocus.weightModification);
+        
+        if (currentFocus.isFood)
+        {
+            foodDay++;
+            if (currentFocus.notHealty)
+            {
+
+
+                noHealtyFoodDay++;
+            }
+            CheckWeightIncressing();
+        }
+        timeController.AddHours(currentFocus.hoursSpent);
+    }
+
+    private void Work()
+    {
+
+        if (timeController.hourCounter >= 9 && timeController.hourCounter <= 15)
+        {
+            int late = timeController.hourCounter - 9;
+            int workingHours = 15 - timeController.hourCounter;
+            int stressAdded = (workingHours / 4);
+            int prevsocial = stateController.social.value;
+            stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
+            stateController.social.ModifyValue(prevsocial + currentFocus.socialModification);
+            stateController.stress.ModifyValue(10 * late + 10 * stressAdded);
+            stateController.fun.ModifyValue(currentFocus.funModification);
+            stateController.work.ModifyValue(true);
+            timeController.AddHours(workingHours);
+            gameController.RunFade();
+        }
+        else
+        {
+            stateController.energy.ModifyValue(-10 - hungerPenalization);
+            stateController.fun.ModifyValue(30);
+            stateController.stress.ModifyValue(-10);
+            timeController.AddHours(1);
+
+        }
+    }
+
+    private void Clean()
+    {
+        stateController.fun.ModifyValue(currentFocus.funModification);
+        stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
+        stateController.hygiene.ModifyValue(currentFocus.hygieneModification);
+        stateController.clean.ModifyValue(true);
+        timeController.AddHours(currentFocus.hoursSpent);
+        gameController.RunFade();
+    }
+
+    private void Eat()
+    {
+        if (timeController.hourCounter >= 8 && timeController.hourCounter <= 11)
+        {
+            stateController.brakefast.ModifyValue(true);
+        }
+        else if (timeController.hourCounter > 13 && timeController.hourCounter <= 16)
+        {
+            stateController.eat.ModifyValue(true);
+        }
+        else if (timeController.hourCounter > 19 && timeController.hourCounter <= 22)
+        {
+            stateController.dinner.ModifyValue(true);
+        }
+        else
+        {
+
+        AddWeigthForExtraSatitey();
+        }
+        foodDay++;
+        CheckWeightIncressing();
+        stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
+        stateController.satiety.ModifyValue(currentFocus.satietyModification);
+        timeController.AddHalfHour();
+        gameController.RunFade();
+
+    }
+
+    private void AddWeigthForExtraSatitey()
+    {
+        if (stateController.satiety.value + currentFocus.satietyModification > stateController.satiety.maxValue)
+        {
+            stateController.weigth.ModifyValue(((stateController.satiety.value + currentFocus.satietyModification) - stateController.satiety.maxValue) / 10);
+        };
+    }
+
+    private void CheckWeightIncressing()
+    {
+        if (foodDay == 5)
+        {
+            stateController.weigth.ModifyValue(1);
+            foodDay = 0;
+        }
+        if (noHealtyFoodDay == 3) ;
+        {
+            stateController.weigth.ModifyValue(1);
+            noHealtyFoodDay = 0;
+        }
+    }
+
+    private void Bath()
+    {
+        if (!stateController.bath.boolValue)
+        {
+            stateController.bath.ModifyValue(true);
+            stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
+            stateController.hygiene.ModifyValue(currentFocus.hygieneModification);
+            timeController.AddHours(currentFocus.hoursSpent);
+            gameController.RunFade();
+        }
+
+    }
+
+    private void Sleep()
+    {
+        if (stateController.energy.value <= 40)
+        {
+            int prevsocial = stateController.social.value;
+            int prevFun = stateController.social.value;
+            stateController.takignANap.ModifyValue(true);
+            stateController.happines.ModifyMaxValue((prevFun + prevsocial) / 2);
+            if (stateController.weigth.value >= 80)
+            {
+                stateController.energy.ModifyMaxValue(80);
+            }
+            else
+            {
+                stateController.energy.ModifyMaxValue(100);
+            }
+            if (stateController.stress.value >= 80)
+            {
+                GameOver();
+            }
+            stateController.hygiene.ModifyValue(0);
+            gameController.RunFade();
+            timeController.AddHours(currentFocus.hoursSpent);
+            stateController.takignANap.ModifyValue(false);
+        }
+    }
+    IEnumerator CheckForInstnatPassive()
+    {
+        if (stateController.satiety.value <= 50)
+        {
+            hungerPenalization = 5;
+        }
+        else
+        {
+            hungerPenalization = 0;
+        }
+        if (stateController.energy.value == 0)
+        {
+            Sleep();
+            yield return new WaitForSeconds(2);
+        }
+        yield return null;
+    }
+
+
+
+    private void GameOver()
+    {
+        Debug.Log("You lose");
+
+    }
+
+    public void PerformActionByHour(int hour)
+    {
+        if (hour == 0)
+        {
+            noHealtyFoodDay = 0;
+            foodDay = 0;
+        }
+        if (stateController.social.value <= 60 && !stateController.takignANap.boolValue)
+        {
+            stateController.stress.ModifyValue(10);
+        }
+        if (stateController.fun.value <= 40 && !stateController.takignANap.boolValue)
+        {
+            stateController.stress.ModifyValue(10);
+        }
+        if (!stateController.takignANap.boolValue)
+        {
+            stateController.fun.ModifyValue(-10);
+            stateController.energy.ModifyValue(-5);
+        }
+        if (hour == 23 && stateController.hygiene.value <= 50 && (!stateController.takignANap.boolValue))
+        {
+            stateController.stress.ModifyValue(10);
+        }
+        if (stateController.satiety.value <= 20)
+        {
+            hungerTime++;
+        }
+        else
+        {
+            hungerTime = 0;
+        }
+        if (stateController.thirst.value <= 40)
+        {
+            thirstTime++;
+        }
+        else
+        {
+            thirstTime = 0;
+        }
+
+        if (thirstTime >= 12 || hungerTime >= 12)
+        {
+            GameOver();
+        }
+        stateController.social.ModifyValue(-10);
+        stateController.satiety.ModifyValue(-10);
+        stateController.thirst.ModifyValue(-10);
+
+
+    }
+}

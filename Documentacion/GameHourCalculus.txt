@@ -1,0 +1,9 @@
+m    realidad  segundos
+1 = 24 horas = 86400	=	1
+2 = 12 horas = 43200	=	2
+2 =  6 horas = 21600	=	4
+2 =  3 horas = 10800	=	8
+3 =  1 horas =  3600	=	24
+2 = 30 min   		=	48
+2 = 15 min		=	96
+3 =  5 min		=	288
