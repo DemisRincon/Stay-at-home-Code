@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    public static bool SeenRecomendations = false;
     public GameObject PauseMenuUI;
     public GameObject PalyerMenu;
     // Update is called once per frame
@@ -24,6 +26,37 @@ public class PauseMenu : MonoBehaviour
                 
             }
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+          
+
+            if (SeenRecomendations)
+            {
+                HideRecomendations();
+            }
+            else
+            {
+                ShowRecomendations();
+            }
+        }
+    }
+
+    private void HideRecomendations()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        PalyerMenu.SetActive(true);
+        Time.timeScale = 1f;
+        SeenRecomendations = false;
+    }
+
+    private void ShowRecomendations()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        PalyerMenu.SetActive(false);
+        Time.timeScale = 0f;
+        SeenRecomendations = true;
     }
 
     public void Resume()
