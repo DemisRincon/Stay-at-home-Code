@@ -19,7 +19,7 @@ public class PassiveController : MonoBehaviour
     private VideoPlayer video;
     private AudioSource spotify;
     private int stresCounter;
-
+   private GameOverAnalisis gameOverAnalisis;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,7 @@ public class PassiveController : MonoBehaviour
         timeController = GameObject.Find("EventSystem").GetComponent<TimeController>();
         video = GameObject.Find("TVCanvas").GetComponent<VideoPlayer>();
         spotify = GameObject.Find("Spotify").GetComponent<AudioSource>();
+        gameOverAnalisis = gameObject.GetComponent<GameOverAnalisis>();
     }
 
     // Update is called once per frame
@@ -281,7 +282,7 @@ public class PassiveController : MonoBehaviour
             }
             if (stateController.stress.value >= 80)
             {
-                GameOver();
+                GameOver("stress");
             }
             stateController.energy.ModifyValue(100);
             stateController.stress.ModifyValue(-20);
@@ -311,9 +312,9 @@ public class PassiveController : MonoBehaviour
 
 
 
-    private void GameOver()
+    private void GameOver(string reason)
     {
-        Debug.Log("You lose");
+        gameOverAnalisis.GameOverReason(reason);
 
     }
 
@@ -333,11 +334,11 @@ public class PassiveController : MonoBehaviour
         }
         if (hour == 3&& stateController.work.boolValue==false)
         {
-            GameOver();
+            GameOver("work");
         }
         if (stateController.weigth.value > 95)
         {
-            GameOver();
+            GameOver("fat");
         }
         if (stateController.stress.value>=90)
         {
@@ -349,7 +350,7 @@ public class PassiveController : MonoBehaviour
         }
         if (stresCounter>=3)
         {
-            GameOver();
+            GameOver("stress");
         }
         if (stateController.social.value <= 60 && !stateController.takignANap.boolValue)
         {
@@ -385,9 +386,13 @@ public class PassiveController : MonoBehaviour
             thirstTime = 0;
         }
 
-        if (thirstTime >= 12 || hungerTime >= 12)
+        if (thirstTime >= 12 )
         {
-            GameOver();
+            GameOver("hid");
+        }
+        if ( hungerTime >= 12)
+        {
+            GameOver("hunger");
         }
         stateController.social.ModifyValue(-5);
         stateController.satiety.ModifyValue(-10);

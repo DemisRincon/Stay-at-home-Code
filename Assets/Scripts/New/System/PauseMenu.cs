@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject PalyerMenu;
     public GameObject RecomendationsMenu;
+    public GameObject GameOverMenu;
     // Update is called once per frame
     void Update()
     {
@@ -60,6 +61,16 @@ public class PauseMenu : MonoBehaviour
         PalyerMenu.SetActive(false);
         Time.timeScale = 0f;
         SeenRecomendations = true;
+    }
+
+    public void GameOver()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameOverMenu.SetActive(true);
+        PalyerMenu.SetActive(false);
+        Time.timeScale = 0f;
+       
     }
 
     public void Resume()
