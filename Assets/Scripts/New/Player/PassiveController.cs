@@ -18,6 +18,8 @@ public class PassiveController : MonoBehaviour
     private int foodDay = 0;
     private VideoPlayer video;
     private AudioSource spotify;
+    private int stresCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,6 +131,7 @@ public class PassiveController : MonoBehaviour
     }
     private void GeneralMod()
     {
+
         stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
         stateController.social.ModifyValue(currentFocus.socialModification);
         AddWeigthForExtraSatitey();
@@ -174,9 +177,10 @@ public class PassiveController : MonoBehaviour
         else
         {
             stateController.energy.ModifyValue(-10 - hungerPenalization);
-            stateController.fun.ModifyValue(30);
+            stateController.fun.ModifyValue(40);
+            stateController.social.ModifyValue(20);
             stateController.stress.ModifyValue(-10);
-            timeController.AddHours(1);
+            timeController.AddHours(3);
 
         }
     }
@@ -193,6 +197,7 @@ public class PassiveController : MonoBehaviour
 
     private void Eat()
     {
+
         if (timeController.hourCounter >= 8 && timeController.hourCounter <= 11)
         {
             stateController.brakefast.ModifyValue(true);
@@ -223,7 +228,9 @@ public class PassiveController : MonoBehaviour
     {
         if (stateController.satiety.value + currentFocus.satietyModification > stateController.satiety.maxValue)
         {
-            stateController.weigth.ModifyValue(((stateController.satiety.value + currentFocus.satietyModification) - stateController.satiety.maxValue) / 10);
+            Debug.Log("enter to satiety");
+
+            stateController.weigth.ModifyValue(((stateController.satiety.value + currentFocus.satietyModification) - stateController.satiety.maxValue) / 20);
         };
     }
 
@@ -234,11 +241,12 @@ public class PassiveController : MonoBehaviour
             stateController.weigth.ModifyValue(1);
             foodDay = 0;
         }
-        if (noHealtyFoodDay == 3) ;
+        if (noHealtyFoodDay == 3)
         {
             stateController.weigth.ModifyValue(1);
             noHealtyFoodDay = 0;
         }
+        
     }
 
     private void Bath()
@@ -261,7 +269,8 @@ public class PassiveController : MonoBehaviour
             int prevsocial = stateController.social.value;
             int prevFun = stateController.social.value;
             stateController.takignANap.ModifyValue(true);
-            stateController.happines.ModifyMaxValue((prevFun + prevsocial) / 2);
+            stateController.sleep.ModifyValue(true);
+            
             if (stateController.weigth.value >= 80)
             {
                 stateController.energy.ModifyMaxValue(80);
@@ -275,7 +284,8 @@ public class PassiveController : MonoBehaviour
                 GameOver();
             }
             stateController.energy.ModifyValue(100);
-            stateController.hygiene.ModifyValue(0);
+            stateController.stress.ModifyValue(-20);
+            stateController.hygiene.ModifyValue(-100);
             gameController.RunFade();
             timeController.AddHours(8);
             stateController.takignANap.ModifyValue(false);
@@ -311,8 +321,35 @@ public class PassiveController : MonoBehaviour
     {
         if (hour == 0)
         {
+            stateController.brakefast.ModifyValue(true);
+            stateController.bath.ModifyValue(true);
+            stateController.work.ModifyValue(true);
+            stateController.clean.ModifyValue(true);
+            stateController.eat.ModifyValue(true);
+            stateController.dinner.ModifyValue(true);
+            stateController.sleep.ModifyValue(true);
             noHealtyFoodDay = 0;
             foodDay = 0;
+        }
+        if (hour == 3&& stateController.work.boolValue==false)
+        {
+            GameOver();
+        }
+        if (stateController.weigth.value > 95)
+        {
+            GameOver();
+        }
+        if (stateController.stress.value>=90)
+        {
+            stresCounter++;
+        }
+        else
+        {
+            stresCounter = 0;
+        }
+        if (stresCounter>=3)
+        {
+            GameOver();
         }
         if (stateController.social.value <= 60 && !stateController.takignANap.boolValue)
         {
@@ -352,10 +389,10 @@ public class PassiveController : MonoBehaviour
         {
             GameOver();
         }
-        stateController.social.ModifyValue(-10);
+        stateController.social.ModifyValue(-5);
         stateController.satiety.ModifyValue(-10);
         stateController.thirst.ModifyValue(-10);
-
+        stateController.happines.ModifyMaxValue((stateController.fun.value+stateController.social.value)/ 2);
 
     }
 }

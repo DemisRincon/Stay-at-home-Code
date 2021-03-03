@@ -22,11 +22,13 @@ public class Movement : MonoBehaviour
     [SerializeField] private MoveableObject moveableObject;
     private Animator animator;
     private const string animBoolName = "isOpen_Obj_";
+    private PauseMenu pauseMenu;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         LayerMask iRayLM = LayerMask.NameToLayer("InteractRaycast");
         rayLayerMask = 1 << iRayLM.value;
+        pauseMenu = GameObject.Find("EventSystem").GetComponent<PauseMenu>();
     }
 
     void Update()
@@ -45,7 +47,7 @@ public class Movement : MonoBehaviour
             focus = hit.collider.GetComponent<ObjectInteractable>();
             focusVariable = hit.collider.GetComponent<MultipleInteracionConroller>();
             moveableObject = hit.collider.GetComponent<MoveableObject>();
-            if (moveableObject!=null)
+            if (moveableObject != null)
             {
                 animator = hit.collider.GetComponent<Animator>();
             }
@@ -73,7 +75,7 @@ public class Movement : MonoBehaviour
                     {
                         messageText.text = focus.GetActionName() + " (E)";
                     }
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if ((Input.GetKeyDown(KeyCode.E)) && !pauseMenu.GameIsPaused && !pauseMenu.SeenRecomendations)
                     {
                         focus.PerformActions();
                         if (moveableObject != null)
@@ -89,12 +91,12 @@ public class Movement : MonoBehaviour
                 if (focusVariable.allowInteract)
                 {
                     messagePanel.SetActive(true);
-                  
-                        messageText.text = focusVariable.GetActionName() + " (E)";
-                    
-                    if (Input.GetKeyDown(KeyCode.E))
+
+                    messageText.text = focusVariable.GetActionName() + " (E)";
+
+                    if ((Input.GetKeyDown(KeyCode.E)) && !pauseMenu.GameIsPaused && !pauseMenu.SeenRecomendations)
                     {
-                    
+
                         focusVariable.PerformActions();
                     }
                 }
