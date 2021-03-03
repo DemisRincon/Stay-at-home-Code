@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public static bool SeenRecomendations = false;
+    [SerializeField] public bool GameIsPaused { get;private set; } = false;
+    [SerializeField] public bool SeenRecomendations { get; private set; } = false;
     public GameObject PauseMenuUI;
     public GameObject PalyerMenu;
+    public GameObject RecomendationsMenu;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)&&!SeenRecomendations)
         {
             if (GameIsPaused)
             {
@@ -26,7 +27,7 @@ public class PauseMenu : MonoBehaviour
                 
             }
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)&&!GameIsPaused)
         {
           
 
@@ -45,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        RecomendationsMenu.SetActive(false);
         PalyerMenu.SetActive(true);
         Time.timeScale = 1f;
         SeenRecomendations = false;
@@ -54,6 +56,7 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        RecomendationsMenu.SetActive(true);
         PalyerMenu.SetActive(false);
         Time.timeScale = 0f;
         SeenRecomendations = true;

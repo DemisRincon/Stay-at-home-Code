@@ -131,7 +131,6 @@ public class PassiveController : MonoBehaviour
     }
     private void GeneralMod()
     {
-        Debug.Log("GENERAL MOD");
 
         stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
         stateController.social.ModifyValue(currentFocus.socialModification);
@@ -198,7 +197,6 @@ public class PassiveController : MonoBehaviour
 
     private void Eat()
     {
-        Debug.Log("HAS ENTERE TO EAT");
 
         if (timeController.hourCounter >= 8 && timeController.hourCounter <= 11)
         {
