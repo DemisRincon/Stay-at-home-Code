@@ -64,11 +64,11 @@ public class Movement : MonoBehaviour
                         isOpen = animator.GetBool(animBoolNameNum);
                         if (isOpen)
                         {
-                            messageText.text = "Press E to Close";
+                            messageText.text = "(E) Cerrar";
                         }
                         else
                         {
-                            messageText.text = "Press E to Open";
+                            messageText.text = "(E) Abrir";
                         }
                     }
                     else
