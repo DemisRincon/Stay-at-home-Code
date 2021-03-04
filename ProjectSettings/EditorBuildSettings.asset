@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HouseFilled.unity
     guid: feb97c2dddfe0754d90a255d9ebd4ca6
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 987b129fa791b394a9519fbbb888c69e
   m_configObjects: {}
