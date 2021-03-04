@@ -327,7 +327,7 @@ public class PassiveController : MonoBehaviour
 
     public void PerformActionByHour(int hour)
     {
-        if (hour == 0)
+        if (hour==23)
         {
             stateController.brakefast.ModifyValue(false);
             stateController.bath.ModifyValue(false);
