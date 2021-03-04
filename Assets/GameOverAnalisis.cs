@@ -8,7 +8,9 @@ public class GameOverAnalisis : MonoBehaviour
     [SerializeField] private GameObject hidratationText;
     [SerializeField] private GameObject stressText;
     [SerializeField] private GameObject fatText;
+
     [SerializeField] private GameObject workText;
+    [SerializeField] private GameObject winText;
     [SerializeField] private PauseMenu pauseMenu;
     // Start is called before the first frame update
     private string reason="";
@@ -29,6 +31,14 @@ public class GameOverAnalisis : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (reason == "win")
+        {
+            winText.SetActive(true);
+        }
+        else
+        {
+            winText.SetActive(false);
+        }
         if (reason=="work")
         {
             workText.SetActive(true);
