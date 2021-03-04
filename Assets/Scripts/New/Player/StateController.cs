@@ -53,6 +53,9 @@ public class StateController : MonoBehaviour
     [SerializeField] private GameObject eatCheck;
     [SerializeField] private GameObject dinnerCheck;
     [SerializeField] private GameObject sleepCheck;
+
+
+
     private void Update()
     {
         energyText.text = energy.value.ToString();
@@ -79,8 +82,7 @@ public class StateController : MonoBehaviour
         eatCheck.SetActive(eat.boolValue);
         dinnerCheck.SetActive(dinner.boolValue);
         sleepCheck.SetActive(sleep.boolValue);
-
-
+     
     }
 
 }
