@@ -17,7 +17,7 @@ public class TimeController : MonoBehaviour
     private int minutesCounter;
     private readonly int secondsDay = 84600;
     private readonly int secondsHour = 3600;
-    public 
+    public
         GameObject Sun;
     private float degrees;
     private int hourPrev;
@@ -47,7 +47,7 @@ public class TimeController : MonoBehaviour
     }
     public void AddHalfHour()
     {
-        totalSeconds +=  secondsHour/2;
+        totalSeconds += secondsHour / 2;
     }
     private void ChangeText()
     {
@@ -80,7 +80,7 @@ public class TimeController : MonoBehaviour
 
         if (hourCounter != hourPrev)
         {
-                diferenceBetweenHours= DiferenceHours(hourCounter);
+            diferenceBetweenHours = DiferenceHours(hourCounter);
             if (dayCounter == 0 && hourCounter <= 7)
             {
                 hourPrev = hourCounter;
@@ -92,15 +92,17 @@ public class TimeController : MonoBehaviour
         minutesCounter = (int)(Mathf.Floor(totalSeconds - (dayCounter * secondsDay) - (hourCounter * secondsHour)) / 60);
     }
 
-    public int DiferenceHours(int hourCounter) {
-        if (hourCounter>hourPrev)
-        {
-        return (hourCounter - hourPrev);
+    public int DiferenceHours(int hourCounter)
+    {
 
+        if (hourCounter > hourPrev)
+        {            
+            return (hourCounter - hourPrev);
         }
         else
         {
-            return (hourCounter - hourPrev)+24;
+            passive.CleanStatus();
+            return (hourCounter - hourPrev) + 24;
         }
     }
 }

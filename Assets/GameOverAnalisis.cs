@@ -69,7 +69,7 @@ public class GameOverAnalisis : MonoBehaviour
         }
         else
         {
-            hungerText.SetActive(false);
+            hidratationText.SetActive(false);
         }
         if (reason == "hunger")
         {
