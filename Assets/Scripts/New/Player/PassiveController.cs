@@ -329,13 +329,13 @@ public class PassiveController : MonoBehaviour
     {
         if (hour == 0)
         {
-            stateController.brakefast.ModifyValue(true);
-            stateController.bath.ModifyValue(true);
-            stateController.work.ModifyValue(true);
-            stateController.clean.ModifyValue(true);
-            stateController.eat.ModifyValue(true);
-            stateController.dinner.ModifyValue(true);
-            stateController.sleep.ModifyValue(true);
+            stateController.brakefast.ModifyValue(false);
+            stateController.bath.ModifyValue(false);
+            stateController.work.ModifyValue(false);
+            stateController.clean.ModifyValue(false);
+            stateController.eat.ModifyValue(false);
+            stateController.dinner.ModifyValue(false);
+            stateController.sleep.ModifyValue(false);
             noHealtyFoodDay = 0;
             foodDay = 0;
         }
