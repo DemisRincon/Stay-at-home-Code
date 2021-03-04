@@ -2451,8 +2451,8 @@ MonoBehaviour:
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
-  funModification: 30
-  stressModification: -10
+  funModification: 50
+  stressModification: -20
   happinessModification: 0
   weightModification: 0
   hoursSpent: 1
@@ -7815,8 +7815,8 @@ MonoBehaviour:
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
-  funModification: 30
-  stressModification: -10
+  funModification: 50
+  stressModification: -20
   happinessModification: 0
   weightModification: 0
   hoursSpent: 1
@@ -8327,7 +8327,7 @@ MonoBehaviour:
   doACall: 0
   doExercise: 0
   energyModification: -30
-  socialModification: 30
+  socialModification: 40
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
@@ -12706,7 +12706,7 @@ MonoBehaviour:
   thirstModification: 0
   hygieneModification: 0
   funModification: 30
-  stressModification: -10
+  stressModification: -30
   happinessModification: 0
   weightModification: 0
   hoursSpent: 2
@@ -14203,7 +14203,7 @@ MonoBehaviour:
   thirstModification: 0
   hygieneModification: 0
   funModification: 30
-  stressModification: -10
+  stressModification: -30
   happinessModification: 0
   weightModification: 0
   hoursSpent: 2
@@ -19014,8 +19014,8 @@ MonoBehaviour:
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
-  funModification: 30
-  stressModification: -10
+  funModification: 50
+  stressModification: -20
   happinessModification: 0
   weightModification: 0
   hoursSpent: 1
@@ -20683,8 +20683,8 @@ MonoBehaviour:
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
-  funModification: 30
-  stressModification: -10
+  funModification: 50
+  stressModification: -20
   happinessModification: 0
   weightModification: 0
   hoursSpent: 1
@@ -21447,8 +21447,8 @@ MonoBehaviour:
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
-  funModification: 30
-  stressModification: -10
+  funModification: 50
+  stressModification: -20
   happinessModification: 0
   weightModification: 0
   hoursSpent: 1
@@ -23364,11 +23364,11 @@ MonoBehaviour:
   doACall: 1
   doExercise: 0
   energyModification: -20
-  socialModification: 40
+  socialModification: 50
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
-  funModification: 0
+  funModification: 20
   stressModification: 0
   happinessModification: 0
   weightModification: 0

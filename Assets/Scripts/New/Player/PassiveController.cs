@@ -186,8 +186,8 @@ public class PassiveController : MonoBehaviour
         {
             stateController.energy.ModifyValue(-10 - hungerPenalization);
             stateController.fun.ModifyValue(40);
-            stateController.social.ModifyValue(20);
-            stateController.stress.ModifyValue(-10);
+            stateController.social.ModifyValue(30);
+            stateController.stress.ModifyValue(-20);
             timeController.AddHours(3);
 
         }
@@ -348,7 +348,7 @@ public class PassiveController : MonoBehaviour
         {
             stresCounter = 0;
         }
-        if (stresCounter>=3)
+        if (stresCounter>=5)
         {
             GameOver("stress");
         }
