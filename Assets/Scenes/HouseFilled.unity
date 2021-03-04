@@ -8563,7 +8563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60023f01814aca643bf8202d31b89801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpeed: 288
+  timeSpeed: 48
   totalSeconds: 25200
   hourText: {fileID: 801094121}
   dayText: {fileID: 440284120}
