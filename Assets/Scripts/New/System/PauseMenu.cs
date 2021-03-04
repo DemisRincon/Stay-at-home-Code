@@ -106,4 +106,12 @@ public class PauseMenu : MonoBehaviour
         
     }
 
+    public void LoadCredits()
+    {
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(2);
+
+    }
+
 }
