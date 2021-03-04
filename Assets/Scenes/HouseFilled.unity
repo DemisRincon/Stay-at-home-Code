@@ -8528,7 +8528,7 @@ MonoBehaviour:
   PauseMenuUI: {fileID: 1853906053}
   PalyerMenu: {fileID: 1377800667}
   RecomendationsMenu: {fileID: 676384056}
-  GameOverMenu: {fileID: 0}
+  GameOverMenu: {fileID: 1766368330}
 --- !u!114 &548673012
 MonoBehaviour:
   m_ObjectHideFlags: 0
