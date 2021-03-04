@@ -329,15 +329,7 @@ public class PassiveController : MonoBehaviour
     {
         if (hour == 0)
         {
-            stateController.brakefast.ModifyValue(false);
-            stateController.bath.ModifyValue(false);
-            stateController.work.ModifyValue(false);
-            stateController.clean.ModifyValue(false);
-            stateController.eat.ModifyValue(false);
-            stateController.dinner.ModifyValue(false);
-            stateController.sleep.ModifyValue(false);
-            noHealtyFoodDay = 0;
-            foodDay = 0;
+            CleanStatus();            
         }
 
         if (hour == 15&& stateController.work.boolValue==false)
@@ -411,5 +403,18 @@ public class PassiveController : MonoBehaviour
         {
             GameOver("Win");
         }
+    }
+
+    public void CleanStatus()
+    {
+        stateController.brakefast.ModifyValue(false);
+        stateController.bath.ModifyValue(false);
+        stateController.work.ModifyValue(false);
+        stateController.clean.ModifyValue(false);
+        stateController.eat.ModifyValue(false);
+        stateController.dinner.ModifyValue(false);
+        stateController.sleep.ModifyValue(false);
+        noHealtyFoodDay = 0;
+        foodDay = 0;
     }
 }
