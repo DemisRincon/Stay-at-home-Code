@@ -53,8 +53,67 @@ public class StateController : MonoBehaviour
     [SerializeField] private GameObject eatCheck;
     [SerializeField] private GameObject dinnerCheck;
     [SerializeField] private GameObject sleepCheck;
+
+    [SerializeField] private GameObject viewEnegy;
+    [SerializeField] private GameObject viewHunger;
+    [SerializeField] private GameObject viewThirst;
+    [SerializeField] private GameObject viewHygene;
+    [SerializeField] private GameObject viewStress;
+    [SerializeField] private GameObject viewSocial;
+
     private void Update()
     {
+
+
+
+        if (social.value <= 20)
+        {
+            viewSocial.SetActive(true);
+        }
+        else
+        {
+            viewSocial.SetActive(false);
+        }
+        if (stress.value >= 80)
+        {
+            viewStress.SetActive(true);
+        }
+        else
+        {
+            viewStress.SetActive(false);
+        }
+        if (hygiene.value <= 20)
+        {
+            viewHygene.SetActive(true);
+        }
+        else
+        {
+            viewHygene.SetActive(false);
+        }
+        if (thirst.value <= 20)
+        {
+            viewThirst.SetActive(true);
+        }
+        else
+        {
+            viewThirst.SetActive(false);
+        }
+        if (satiety.value <= 20)
+        {
+            viewHunger.SetActive(true);
+        }
+        else
+        {
+            viewHunger.SetActive(false);
+        }
+        if (energy.value <= 20)
+        {
+            viewEnegy.SetActive(true);
+        }
+        else
+        {
+            viewEnegy.SetActive(false);
+        }
         energyText.text = energy.value.ToString();
         socialText.text = social.value.ToString();
         satietyText.text = satiety.value.ToString();
@@ -79,6 +138,7 @@ public class StateController : MonoBehaviour
         eatCheck.SetActive(eat.boolValue);
         dinnerCheck.SetActive(dinner.boolValue);
         sleepCheck.SetActive(sleep.boolValue);
+
 
 
     }

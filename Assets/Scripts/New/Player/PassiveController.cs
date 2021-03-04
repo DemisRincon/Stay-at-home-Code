@@ -115,7 +115,10 @@ public class PassiveController : MonoBehaviour
     {
         stateController.energy.ModifyValue(currentFocus.energyModification - hungerPenalization);
         stateController.stress.ModifyValue(currentFocus.stressModification);
-        stateController.weigth.ModifyValue(currentFocus.weightModification);
+        if (stateController.weigth.value + currentFocus.weightModification >= 74)
+        {
+            stateController.weigth.ModifyValue(currentFocus.weightModification);
+        }
         timeController.AddHours(currentFocus.hoursSpent);
         gameController.RunFade();
     }
@@ -142,7 +145,11 @@ public class PassiveController : MonoBehaviour
         stateController.fun.ModifyValue(currentFocus.funModification);
         stateController.stress.ModifyValue(currentFocus.stressModification);
         stateController.happines.ModifyValue(currentFocus.happinessModification);
+        if (stateController.weigth.value+currentFocus.weightModification>=74)
+        {
+
         stateController.weigth.ModifyValue(currentFocus.weightModification);
+        }
         
         if (currentFocus.isFood)
         {
@@ -322,17 +329,18 @@ public class PassiveController : MonoBehaviour
     {
         if (hour == 0)
         {
-            stateController.brakefast.ModifyValue(true);
-            stateController.bath.ModifyValue(true);
-            stateController.work.ModifyValue(true);
-            stateController.clean.ModifyValue(true);
-            stateController.eat.ModifyValue(true);
-            stateController.dinner.ModifyValue(true);
-            stateController.sleep.ModifyValue(true);
+            stateController.brakefast.ModifyValue(false);
+            stateController.bath.ModifyValue(false);
+            stateController.work.ModifyValue(false);
+            stateController.clean.ModifyValue(false);
+            stateController.eat.ModifyValue(false);
+            stateController.dinner.ModifyValue(false);
+            stateController.sleep.ModifyValue(false);
             noHealtyFoodDay = 0;
             foodDay = 0;
         }
-        if (hour == 3&& stateController.work.boolValue==false)
+
+        if (hour == 15&& stateController.work.boolValue==false)
         {
             GameOver("work");
         }
@@ -399,5 +407,9 @@ public class PassiveController : MonoBehaviour
         stateController.thirst.ModifyValue(-10);
         stateController.happines.ModifyMaxValue((stateController.fun.value+stateController.social.value)/ 2);
 
+        if (hour==23&&timeController.dayCounter==6)
+        {
+            GameOver("Win");
+        }
     }
 }
