@@ -5128,6 +5128,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65000011887935670, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000011887935670, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
+      propertyPath: m_Center.z
+      value: -0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
 --- !u!1 &293966351
@@ -5986,6 +5994,14 @@ PrefabInstance:
     - target: {fileID: 4000010780729136, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000011887935670, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000011887935670, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
+      propertyPath: m_Center.z
+      value: -0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
@@ -19103,6 +19119,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65000011887935670, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65000011887935670, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
+      propertyPath: m_Center.z
+      value: -0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474e596dc3e339e42bef4bf139d2e520, type: 3}
 --- !u!1 &1435377994 stripped
@@ -27011,8 +27035,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.09, y: 2.2, z: 2.66}
-  m_Center: {x: 0.59, y: 1.2, z: 0}
+  m_Size: {x: 1.09, y: 2.2, z: 1}
+  m_Center: {x: 0.59, y: 1.2, z: -0.4}
 --- !u!95 &95000010526502150
 Animator:
   serializedVersion: 3
