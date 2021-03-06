@@ -12763,7 +12763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSpeed: 48
-  totalSeconds: 390000
+  totalSeconds: 25200
   hourText: {fileID: 801094121}
   dayText: {fileID: 440284120}
   Sun: {fileID: 1263028550}
