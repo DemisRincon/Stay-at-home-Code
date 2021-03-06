@@ -319,7 +319,7 @@ public class PassiveController : MonoBehaviour
 
 
 
-    private void GameOver(string reason)
+    public void GameOver(string reason)
     {
         gameOverAnalisis.GameOverReason(reason);
 
@@ -327,6 +327,8 @@ public class PassiveController : MonoBehaviour
 
     public void PerformActionByHour(int hour)
     {
+        Debug.Log("TIME DAY"+timeController.dayCounter);
+
         if (hour==23)
         {
             CleanStatus();            
@@ -401,7 +403,7 @@ public class PassiveController : MonoBehaviour
 
         if (hour==23&&timeController.dayCounter==6)
         {
-            GameOver("Win");
+            GameOver("win");
         }
     }
 

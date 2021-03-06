@@ -34,6 +34,10 @@ public class TimeController : MonoBehaviour
         CalculateDegrees();
         MoveSun();
         ChangeText();
+        if (totalSeconds>=590000)
+        {
+            passive.GameOver("win");
+        }
     }
 
 

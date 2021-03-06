@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 440976752}
   - component: {fileID: 440976751}
   - component: {fileID: 440976750}
+  - component: {fileID: 440976754}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -441,6 +442,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!81 &440976754
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440976749}
+  m_Enabled: 0
 --- !u!1 &1269340954
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,8 +486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17, y: -1552.6992}
-  m_SizeDelta: {x: -309.0179, y: 770.6992}
+  m_AnchoredPosition: {x: 0, y: -3579.8865}
+  m_SizeDelta: {x: -309.0179, y: 4643.366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269340956
 MonoBehaviour:
@@ -513,29 +522,33 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Equipo de desarrollo\nDemis Alberto Rinc\xF3n Mart\xEDnez - Project manager,
-    programer\nFrancisco Javier P\xE9rez Galindo - Map design\nLuis \xC1ngel J\xE1uregui
-    Flores - Interactions programer\nFrancisco Javier Villanueva Enciso - Game designer\n\n\nTanto
-    los v\xEDdeos como las canciones presentadas durante el juego tienen derechos
-    de autor y son utilizados sin fines de lucro.\n\nCanciones:\nJack Stauber - Buttercup\n2Cellos
-    - Shostakovich: Prelude\nAutumn's Midnight - Mi ramito de violetas (Banda el
-    Mexicano)\nBring me The horizon - Throne\nMyGrain - Caraclysm Child\nCHVRCHES
-    cover Artic Monkeys - Do I wanna know\nDaft punk ft. Juli\xE1n Casablancas -
-    Instant crush\nDance gavin Dance - Stroke God, millonarie.\nDance with The desde
-    - Andr\xF3meda\nErik Satie - Gymnopedie\nGorillas - Broken\nLovefool - vintage
-    jazz cardigans cover\nIMAX - Spit it out\nKaene - somewhere only we know\nL'arc~en~ciel
-    - Blurry est\xE9s MV\nFaint - Link in park\nSnow brigade \nNine inch nails -
-    The hand that feeds \nR.E.M - losing My religi\xF3n \nRammstein - Ausl\xE4nder\nSianvar
-    - Omniphobia\nThe Bunny The bear - C'es Pas si loin\nThe dime constant - Quiescent\nWintergatan
-    Marble Mach\xEDn - piano version\nTalk Talk - it's My life\n\nVideos:\nYoung
-    Tender - Si No Vas a Ser T\xFA\nWintergatan - Marble Machine\nRammstein \u2013
-    Deutschland\nPUBLICTHEBAND \u2013 Make You Mine\nLonrot \u2013 5 OSCUROS SECRETOS
-    de la NAVIDAD\nMatthew Robinson \u2013 NEPHICIDE by JOGGER\nIra MusiK Love \u2013
-    Diary Of Dreams - She And Her Darkness\nRiserecords \u2013 Dance Gavin Dance
-    - Death of the Robot with Human Hair\nDama G \u2013 FIN DEL MUNDO EN 2020!!!!!\nBRATTY
-    \u2013 Honey, No Est\xE1s\nAutumn's Midnight \u2013 RAMMSTEIN: ROSA PASTEL |
-    PARODIA\nAuronPlay \u2013 REACCIONANDO A MIS MEMES #5\n\n\n\n\nGracias Por Jugar
-    :)"
+  m_Text: "REPARTO\n\n\nSTAY AT HOME \n\n\n\nUN JUEGO DESARROLLADO POR\n\n\n\nBANSHEE'S
+    VEIL\n\n\n\n\n\n\nProject manager\n\nDemis Alberto Rinc\xF3n Mart\xEDnez\n\n\n\n\nDise\xF1andor
+    del juego\n\nFrancisco Javier Villanueva Enciso \n\n\n\n\nDise\xF1ador de mapa\n\nFrancisco
+    Javier P\xE9rez Galindo \n\n\n\nAnimaciones e interacciones\n\nLuis \xC1ngel
+    J\xE1uregui Flores \n\n\n\nActor de voz\n\nRodolfo Valdovinos L\xF3pez\n\n\n\n\n\nProgramadores\n\nDemis
+    Alberto Rinc\xF3n Mart\xEDnez\n\nLuis \xC1ngel J\xE1uregui Flores \n\n\n\n\nTanto
+    los v\xEDdeos como las canciones presentadas \ndurante el juego tienen derechos
+    de autor \ny son utilizados sin fines de lucro.\n\nM\xFAsica :\r\n\n\nJack Stauber
+    - Buttercup\r\n\n\n2cellos - Shostakovich: Prelude\r\n\n\nAutumn's Midnight -
+    Mi Ramito De Violetas (Banda El Mexicano)\r\n\n\nBring Me the Horizon - Throne\r\n\n\nMygrain
+    - Caraclysm Child\r\n\n\nChvrches Cover Artic Monkeys - Do I Wanna Know.\r\n\n\nDaft
+    Punk Ft. Juli\xE1n Casablancas - Instant Crush\r\n\n\nDance Gavin Dance - Stroke
+    God, Millonarie.\r\n\n\nDance with The Dead - Andromeda\r\n\n\nErik Satie - Gymnopedie\r\n\n\nGorillas
+    - Broken.\r\n\n\nVintage Jazz Cardigans Cover - Lovefool\r\n\n\nI Am X - Spit
+    It Out\r\n\n\nKaene - Somewhere Only We Know\r\n\n\nL'arc~En~Ciel - Blurry Eyes\r\n\n\nFaint
+    - Linkin Park\r\n\n\nMew - Snow Brigade \r\n\n\nNine Inch Nails - The Hand That
+    Feeds \r\n\n\nR.E.M - Losing My Religion \r\n\n\nRammstein - Ausl\xE4nder\r\n\n\nSianvar
+    - Omniphobia\r\n\n\nThe Bunny the Bear - C'es Pas Si Loin\r\n\n\nThe Dime Constant
+    - Quiescent\r\n\n\nWintergatan Marble Machine - Piano Version\r\n\n\nTalk Talk
+    - It's My Life\r\n\r\n\n\nVideos:\r\n\n\nYoung Tender - Si No Vas A Ser T\xFA\r\n\n\nWintergatan
+    - Marble Machine\r\n\n\nRammstein \u2013 Deutschland\r\n\n\nPUBLICTHEBAND \u2013
+    Make You Mine\r\n\n\nLonrot \u2013 5 OSCUROS SECRETOS De La NAVIDAD\r\n\n\nMatthew
+    Robinson \u2013 NEPHICIDE by JOGGER\r\n\n\nDiary of Dreams - She and Her Darkness\r\n\n\nDance
+    Gavin Dance - Death of The Robot with Human Hair\r\n\n\nDama G \u2013 FIN DEL
+    MUNDO EN 2020!!!!!\r\n\n\nBRATTY \u2013 Honey, No Est\xE1s\r\n\n\nAutumn's Midnight
+    \u2013 RAMMSTEIN: ROSA PASTEL | PARODIA\r\n\n\nAuronplay \u2013 REACCIONANDO
+    A MIS MEMES #5\r\n\n\n\nGracias Por Jugar :)"
 --- !u!222 &1269340957
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -590,6 +603,8 @@ GameObject:
   - component: {fileID: 1829261647}
   - component: {fileID: 1829261646}
   - component: {fileID: 1829261645}
+  - component: {fileID: 1829261649}
+  - component: {fileID: 1829261648}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -662,6 +677,134 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1829261648
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829261644}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: add83765d35ae044bb0a239b865f4261, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1829261649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829261644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1948720881
 GameObject:
   m_ObjectHideFlags: 0

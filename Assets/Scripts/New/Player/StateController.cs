@@ -24,8 +24,8 @@ public class StateController : MonoBehaviour
     public StateModel dinner = new StateModel(false);
     public StateModel sleep = new StateModel(false);
     public StateModel takignANap = new StateModel(false);
-    
-    
+
+
 
     [SerializeField] private TextMeshProUGUI energyText;
     [SerializeField] private TextMeshProUGUI socialText;
@@ -64,7 +64,7 @@ public class StateController : MonoBehaviour
     private void Update()
     {
 
-
+      
 
         if (social.value <= 20)
         {

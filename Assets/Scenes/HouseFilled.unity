@@ -8343,7 +8343,7 @@ MonoBehaviour:
   doACall: 0
   doExercise: 0
   energyModification: -30
-  socialModification: 40
+  socialModification: 30
   satietyModification: 0
   thirstModification: 0
   hygieneModification: 0
@@ -12722,7 +12722,7 @@ MonoBehaviour:
   thirstModification: 0
   hygieneModification: 0
   funModification: 30
-  stressModification: -30
+  stressModification: -20
   happinessModification: 0
   weightModification: 0
   hoursSpent: 2
@@ -14219,7 +14219,7 @@ MonoBehaviour:
   thirstModification: 0
   hygieneModification: 0
   funModification: 30
-  stressModification: -30
+  stressModification: -20
   happinessModification: 0
   weightModification: 0
   hoursSpent: 2
@@ -20624,7 +20624,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 548673011}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: LoadCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
