@@ -206,15 +206,15 @@ public class PassiveController : MonoBehaviour
     private void Eat()
     {
 
-        if (timeController.hourCounter >= 8 && timeController.hourCounter <= 11)
+        if ((timeController.hourCounter >= 8 && timeController.hourCounter <= 11) && !stateController.brakefast.boolValue)
         {
             stateController.brakefast.ModifyValue(true);
         }
-        else if (timeController.hourCounter > 13 && timeController.hourCounter <= 16)
+        else if ((timeController.hourCounter > 13 && timeController.hourCounter <= 16) && !stateController.eat.boolValue) 
         {
             stateController.eat.ModifyValue(true);
         }
-        else if (timeController.hourCounter > 19 && timeController.hourCounter <= 22)
+        else if ((timeController.hourCounter > 19 && timeController.hourCounter <= 22) && !stateController.dinner.boolValue)
         {
             stateController.dinner.ModifyValue(true);
         }
