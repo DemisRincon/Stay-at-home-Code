@@ -168,7 +168,7 @@ public class PassiveController : MonoBehaviour
     private void Work()
     {
 
-        if (timeController.hourCounter >= 9 && timeController.hourCounter <= 15)
+        if ((timeController.hourCounter >= 9 && timeController.hourCounter < 15) && !stateController.work.boolValue)
         {
             int late = timeController.hourCounter - 9;
             int workingHours = 15 - timeController.hourCounter;

@@ -32,7 +32,7 @@ public class CurrentStatus : MonoBehaviour
     void Update()
     {
 
-        if (stateController.bath.boolValue && stateController.hygiene.value <= 50)
+        if (!stateController.bath.boolValue && stateController.hygiene.value <= 30)
         {
             bathCheck.SetActive(true);
         }
@@ -121,7 +121,7 @@ public class CurrentStatus : MonoBehaviour
             funText.SetActive(false);
         }
 
-        if (stateController.hygiene.value <= 50)
+        if (stateController.hygiene.value <= 30)
         {
             cleanCheck.SetActive(true);
         }
