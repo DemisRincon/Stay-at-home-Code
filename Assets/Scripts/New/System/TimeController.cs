@@ -31,13 +31,14 @@ public class TimeController : MonoBehaviour
     void Update()
     {
         CountAndModifyTime();
+        if (totalSeconds >= 590000)
+        {
+            passive.GameOver("win");            
+        }
         CalculateDegrees();
         MoveSun();
         ChangeText();
-        if (totalSeconds>=590000)
-        {
-            passive.GameOver("win");
-        }
+        
     }
 
 

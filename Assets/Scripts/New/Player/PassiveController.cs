@@ -301,6 +301,8 @@ public class PassiveController : MonoBehaviour
     }
     IEnumerator CheckForInstnatPassive()
     {
+        stateController.happines.ModifyValue((stateController.fun.value + stateController.social.value) / 2);
+
         if (stateController.satiety.value <= 50)
         {
             hungerPenalization = 5;
@@ -321,6 +323,7 @@ public class PassiveController : MonoBehaviour
 
     public void GameOver(string reason)
     {
+        Time.timeScale = 0f;
         gameOverAnalisis.GameOverReason(reason);
 
     }
@@ -334,7 +337,7 @@ public class PassiveController : MonoBehaviour
             CleanStatus();            
         }
 
-        if (hour == 15&& stateController.work.boolValue==false)
+        if (hour >= 15&& stateController.work.boolValue==false && timeController.dayCounter < 5)
         {
             GameOver("work");
         }
@@ -399,7 +402,6 @@ public class PassiveController : MonoBehaviour
         stateController.social.ModifyValue(-5);
         stateController.satiety.ModifyValue(-10);
         stateController.thirst.ModifyValue(-10);
-        stateController.happines.ModifyMaxValue((stateController.fun.value+stateController.social.value)/ 2);
 
         if (hour==23&&timeController.dayCounter==6)
         {
