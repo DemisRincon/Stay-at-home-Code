@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &33236338
 RectTransform:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ RectTransform:
   m_Father: {fileID: 1177963409}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.78296256}
+  m_AnchorMin: {x: 0, y: 0.8114799}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -836,7 +836,7 @@ RectTransform:
   m_Father: {fileID: 680823490}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5822766}
+  m_AnchorMin: {x: 0, y: 0.5190474}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 68543850}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.21703742
+  m_Size: 0.1885201
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2478,6 +2478,7 @@ GameObject:
   - component: {fileID: 389894593}
   - component: {fileID: 389894592}
   - component: {fileID: 389894591}
+  - component: {fileID: 389894594}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2547,7 +2548,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 389894592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 389894594}
+        m_TargetAssemblyTypeName: GoToLinkUnique, Assembly-CSharp
+        m_MethodName: OpenLink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &389894592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2586,6 +2599,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389894589}
   m_CullTransparentMesh: 1
+--- !u!114 &389894594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389894589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa304f8a7041b784eb61680f74ba68ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Link: https://bansheesveil.com/
 --- !u!1 &395884080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,7 +2630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &395884081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6129,7 +6155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa304f8a7041b784eb61680f74ba68ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Link: https://www.youtube.com/playlist?list=PL7boaxcvT1-phtczsflIcxMsDwnFp6bml
+  Link: https://open.spotify.com/playlist/1So1CJpELGjWlP4PFv1HxF?si=-sIzvvGTRTi-YYgsOuSWuA&nd=1
 --- !u!114 &1154541229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6485,7 +6511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1198932963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8547,7 +8573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1533279795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9447,7 +9473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1643396740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10749,7 +10775,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 139558652}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.41772345
+  m_Size: 0.48095265
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
